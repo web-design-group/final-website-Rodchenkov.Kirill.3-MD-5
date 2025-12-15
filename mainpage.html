@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>METASHPERE — Наши преимущества</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="stylemain.css">
+
+</head>
+<body>
+<!-- Подключаем jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script>
+// ==== ФУНКЦИОНАЛ ФОРМЫ ВХОДА ====
+$(document).ready(function() {
+    // Открытие формы по клику на "Войти" в хедере
+    $('.btn-login').on('click', function(e) {
+        e.preventDefault();
+        $('#loginModal').addClass('active');
+        $('body').css('overflow', 'hidden'); // Блокируем скролл
+        return false;
+    });
+
+    // Закрытие модального окна
+    $('#closeLogin').on('click', function() {
+        $('#loginModal').removeClass('active');
+        $('body').css('overflow', 'auto');
+        resetForm();
+    });
+
+    // Закрытие при клике вне модального окна
+    $(document).on('click', function(e) {
+        if ($(e.target).hasClass('login-modal')) {
+            $('#loginModal').removeClass('active');
+            $('body').css('overflow', 'auto');
+            resetForm();
+        }
+    });
+
+    // Валидация и отправка формы
+    $('#loginForm').on('submit', function(e) {
+        e.preventDefault();
+        
+        let isValid = true;
+        const email = $('#email').val();
+        const password = $('#password').val();
+        
+        // Сброс предыдущих ошибок
+        $('.form-control').removeClass('error');
+        $('.error-message').hide();
+        
+        // Проверка email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            $('#email').addClass('error');
+            $('#emailError').show();
+            isValid = false;
+        }
+        
+        // Проверка пароля
+        if (password.length < 6) {
+            $('#password').addClass('error');
+            $('#passwordError').show();
+            isValid = false;
+        }
+        
+        // Если всё правильно - имитация отправки
+        if (isValid) {
+            $('.login-btn').text('Вход...').prop('disabled', true);
+            
+            // Имитация запроса к серверу
+            setTimeout(function() {
+                alert('Вход выполнен успешно! Добро пожаловать в METASPHERE.');
+                $('#loginModal').removeClass('active');
+                $('body').css('overflow', 'auto');
+                resetForm();
+                // Здесь можно добавить перенаправление на личный кабинет
+                // window.location.href = '/dashboard.html';
+            }, 1500);
+        }
+    });
+
+    // Переход к регистрации (заглушка)
+    $('#goToRegister').on('click', function(e) {
+        e.preventDefault();
+        alert('Функция регистрации находится в разработке. Скоро будет доступна!');
+    });
+
+    // Сброс формы
+    function resetForm() {
+        $('#loginForm')[0].reset();
+        $('.form-control').removeClass('error');
+        $('.error-message').hide();
+        $('.login-btn').text('Войти').prop('disabled', false);
+    }
+
+    // Анимация при фокусе на полях
+    $('.form-control').on('focus', function() {
+        $(this).parent().css('transform', 'translateY(-2px)');
+    }).on('blur', function() {
+        $(this).parent().css('transform', 'translateY(0)');
+    });
+
+    // Обработка кнопки регистрации в хедере (заглушка)
+    $('.btn-register').on('click', function(e) {
+        e.preventDefault();
+        alert('Функция регистрации находится в разработке. Скоро будет доступна!');
+        return false;
+    });
+});
+</script>
+  <!-- Прогресс-точки слева (3-я активная, как на изображении) -->
+  <div class="progress-dots">
+    <span></span>
+    <span></span>
+    <span class="active"></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Навигация -->
+  <header class="navbar">
+    <div class="logo">METASHPERE</div>
+    
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="#">Главная</a></li>
+        <li><a href="#">О проекте</a></li>
+        <li><a href="#">Возможности</a></li>
+        <li><a href="#">Карточки</a></li>
+        <li><a href="#">Статистика</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
+    </nav>
+    
+    <div class="auth-buttons">
+      <a href="#" class="btn-login">Войти</a>
+      <a href="#" class="btn-register">Регистрация</a>
+    </div>
+  </header>
+
+  <!-- Основной контент -->
+  <main class="main-container">
+    
+    <h1 class="main-title">Наши преимущества</h1>
+
+    <div class="advantages-container">
+      
+      
+
+      <!-- CSS Grid 2x2 с карточками преимуществ -->
+      <div class="advantages-grid">
+
+        <!-- Карточка 1: Верх слева -->
+        <div class="advantage-card">
+          <h3>Получите признание комьюнити</h3>
+          <p>Соберите фан-базу и делитесь своими достижениями! Расскажите о себе в постах и комментариях своего профиля.</p>
+        </div>
+
+        <!-- Карточка 2: Верх справа -->
+        <div class="advantage-card">
+          <h3>Попадите в топ-пользователей</h3>
+          <p>Развивайте свои навыки и получайте оценки и отзывы других пользователей! Вы ведь хотите стать лучшим в своей отрасли?</p>
+        </div>
+
+        <!-- Карточка 3: Низ слева -->
+        <div class="advantage-card">
+          <h3>Используйте возможности на максимум</h3>
+          <p>Попробуйте себя в роли тренера, аналитика и комментатора или организуйте свой собственный турнир!</p>
+        </div>
+
+        <!-- Карточка 4: Низ справа -->
+        <div class="advantage-card">
+          <h3>Монетизируйте свои навыки</h3>
+          <p>Зарабатывайте деньги за счёт своих навыков в разных отраслях киберспорта.</p>
+        </div>
+
+        <!-- Пунктирные изогнутые белые стрелки (цикл, точно как на изображении, с красным выделением в твоём скрине — но белые в коде) -->
+        
+        <!-- Стрелка 1: от 1 к 2 (горизонтальная, изогнутая вверх) -->
+        <svg class="dashed-arrow arrow1" viewBox="0 0 200 100">
+          <defs>
+            <marker id="arrowhead1" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+              <polygon points="0,0 8,3 0,6" fill="white"/>
+            </marker>
+          </defs>
+          <path d="M20 50 Q100 20 180 50" marker-end="url(#arrowhead1)"/>
+        </svg>
+
+        <!-- Стрелка 2: от 2 к 4 (вертикальная, изогнутая вправо) -->
+        <svg class="dashed-arrow arrow2" viewBox="0 0 100 200">
+          <defs>
+            <marker id="arrowhead2" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+              <polygon points="0,0 8,3 0,6" fill="white"/>
+            </marker>
+          </defs>
+          <path d="M50 20 Q80 100 20 180" marker-end="url(#arrowhead2)"/>
+        </svg>
+
+        <!-- Стрелка 3: от 4 к 3 (горизонтальная, изогнутая вниз) -->
+        <svg class="dashed-arrow arrow3" viewBox="0 0 200 100">
+          <defs>
+            <marker id="arrowhead3" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+              <polygon points="0,0 8,3 0,6" fill="white"/>
+            </marker>
+          </defs>
+          <path d="M180 50 Q100 80 20 50" marker-end="url(#arrowhead3)"/>
+        </svg>
+
+        <!-- Стрелка 4: от 3 к 1 (вертикальная, изогнутая влево) -->
+        <svg class="dashed-arrow arrow4" viewBox="0 0 100 200">
+          <defs>
+            <marker id="arrowhead4" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+              <polygon points="0,0 8,3 0,6" fill="white"/>
+            </marker>
+          </defs>
+          <path d="M50 180 Q20 100 50 20" marker-end="url(#arrowhead4)"/>
+        </svg>
+
+      </div>
+    </div>
+
+    <!-- Подсказка внизу (как на изображении) -->
+    <div class="scroll-hint">
+      Скролл чтобы увидеть больше
+      <svg viewBox="0 0 16 16" fill="currentColor">
+        <path d="M3 6 L8 11 L13 6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+  </main>
+
+</body>
+</html>
