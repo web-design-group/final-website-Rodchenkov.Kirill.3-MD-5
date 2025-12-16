@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>METASHPERE — Возможности с каруселью</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="flexible.css">
+
+</head>
+<body>
+
+  <!-- точки слева по центру сайта, 4-я активная) -->
+  <div class="progress-dots" id="global-dots">
+    <span onclick="scrollToSection(0)"></span>
+    <span onclick="scrollToSection(1)"></span>
+    <span onclick="scrollToSection(2)"></span>
+    <span class="active" onclick="scrollToSection(3)"></span>
+    <span onclick="scrollToSection(4)"></span>
+    <span onclick="scrollToSection(5)"></span>
+    <span onclick="scrollToSection(6)"></span>
+  </div>
+
+  <!-- Навигация -->
+  <header class="navbar">
+    <div class="logo">METASHPERE</div>
+    
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="#">Главная</a></li>
+        <li><a href="#">О проекте</a></li>
+        <li><a href="#">Возможности</a></li>
+        <li><a href="#">Карточки</a></li>
+        <li><a href="#">Статистика</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
+    </nav>
+    
+    <div class="auth-buttons">
+      <a href="#" class="btn-login">Войти</a>
+      <a href="#" class="btn-register">Регистрация</a>
+    </div>
+  </header>
+
+  <!-- Основной контент -->
+  <main class="main-container">
+    
+    <h1 class="main-title">Предоставляем массу возможностей</h1>
+
+    <div class="capabilities-grid">
+
+      <!--  ПОЛЬЗОВАТЕЛИ -->
+      <div class="capability-card">
+        <div class="card-header">
+          <h3 class="card-title">Пользователям</h3>
+        </div>
+        
+        <div class="card-carousel">
+          
+          <!-- Контент 1 -->
+          <div class="card-content active">
+            <div class="card-icon users">🏆</div>
+            <p class="card-description">Выступления на турнирах с призовым фондом</p>
+          </div>
+          
+          <!-- Контент 2 -->
+          <div class="card-content">
+            <div class="card-icon users">📊</div>
+            <p class="card-description">Формула расчета навыка основанная на личных показателях</p>
+          </div>
+          
+          <!-- Контент 3 -->
+          <div class="card-content">
+            <div class="card-icon users">🎯</div>
+            <p class="card-description">Уникальные карточки профиль для пользователей</p>
+          </div>
+          
+          <!-- Контент 4 -->
+          <div class="card-content">
+            <div class="card-icon users">📢</div>
+            <p class="card-description">Публикация постов и новостей на своей странице</p>
+          </div>
+          
+          <!-- Контент 5 -->
+          <div class="card-content">
+            <div class="card-icon users">👥</div>
+            <p class="card-description">Создание клуба, команды или организации</p>
+          </div>
+          
+          <!-- Контент 6 -->
+          <div class="card-content">
+            <div class="card-icon users">🎮</div>
+            <p class="card-description">Развитие в одной или нескольких отраслях киберспорта</p>
+          </div>
+          
+        </div>
+        
+        <!-- стрелки + точки снизу -->
+        <div class="card-navigation">
+          <button class="card-nav-btn" onclick="prevCard(0)">‹</button>
+          <div class="card-indicators" id="indicators-0"></div>
+          <button class="card-nav-btn" onclick="nextCard(0)">›</button>
+        </div>
+      </div>
+
+      <!-- ОРГАНИЗАЦИИ -->
+      <div class="capability-card">
+        <div class="card-header">
+          <h3 class="card-title">Организациям</h3>
+        </div>
+        
+        <div class="card-carousel">
+          
+          <!-- Контент 1 -->
+          <div class="card-content active">
+            <div class="card-icon org">⚙️</div>
+            <p class="card-description">Автоматизированная система проведения мероприятий</p>
+          </div>
+          
+          <!-- Контент 2 -->
+          <div class="card-content">
+            <div class="card-icon org">📈</div>
+            <p class="card-description">Огромное количество возможностей для настройки турниров</p>
+          </div>
+          
+          <!-- Контент 3 -->
+          <div class="card-content">
+            <div class="card-icon org">🖼️</div>
+            <p class="card-description">Найм пользователей из разных отраслей для проведение турниров</p>
+          </div>
+          
+          <!-- Контент 4 -->
+          <div class="card-content">
+            <div class="card-icon org">💰</div>
+            <p class="card-description">Возможность проведения платных мероприятий</p>
+          </div>
+          
+        </div>
+        
+        <!-- стрелки + точки снизу -->
+        <div class="card-navigation">
+          <button class="card-nav-btn" onclick="prevCard(1)">‹</button>
+          <div class="card-indicators" id="indicators-1"></div>
+          <button class="card-nav-btn" onclick="nextCard(1)">›</button>
+        </div>
+      </div>
+
+      <!-- КОМАНДЫ И КЛУБЫ -->
+      <div class="capability-card">
+        <div class="card-header">
+          <h3 class="card-title">Клубам и командам</h3>
+        </div>
+        
+        <div class="card-carousel">
+          
+          <!-- Контент 1 -->
+          <div class="card-content active">
+            <div class="card-icon clubs">💎</div>
+            <p class="card-description">Гарантированная выплата выигранных призов</p>
+          </div>
+          
+          <!-- Контент 2 -->
+          <div class="card-content">
+            <div class="card-icon clubs">📋</div>
+            <p class="card-description">Подписание контрактов с пользователями из разных отраслей</p>
+          </div>
+          
+          <!-- Контент 3 -->
+          <div class="card-content">
+            <div class="card-icon clubs">🎯</div>
+            <p class="card-description">Просмотр демо матчей для тренировок и разбора игры</p>
+          </div>
+          
+          <!-- Контент 4 -->
+          <div class="card-content">
+            <div class="card-icon clubs">🤝</div>
+            <p class="card-description">Проведение товарищеских матчей с другими командами</p>
+          </div>
+          
+        </div>
+        
+        <!--  стрелки + точки снизу -->
+        <div class="card-navigation">
+          <button class="card-nav-btn" onclick="prevCard(2)">‹</button>
+          <div class="card-indicators" id="indicators-2"></div>
+          <button class="card-nav-btn" onclick="nextCard(2)">›</button>
+        </div>
+      </div>
+
+      <!--  АРЕНЫ -->
+      <div class="capability-card">
+        <div class="card-header">
+          <h3 class="card-title">Аренам</h3>
+        </div>
+        
+        <div class="card-carousel">
+          
+          <!-- Контент 1 -->
+          <div class="card-content active">
+            <div class="card-icon arena">📱</div>
+            <p class="card-description">Удобный и информационный профиль</p>
+          </div>
+          
+          <!-- Контент 2 -->
+          <div class="card-content">
+            <div class="card-icon arena">💡</div>
+            <p class="card-description">Система рекомендаций позволит привлечь новых клиентов</p>
+          </div>
+          
+          <!-- Контент 3 -->
+          <div class="card-content">
+            <div class="card-icon arena">🖥️</div>
+            <p class="card-description">Онлайн бронирование компьютеров через наш сайт</p>
+          </div>
+          
+          <!-- Контент 4 -->
+          <div class="card-content">
+            <div class="card-icon arena">⚙️</div>
+            <p class="card-description">Автоматизированная система проведения LAN мероприятий</p>
+          </div>
+          
+          <!-- Контент 5 -->
+          <div class="card-content">
+            <div class="card-icon arena">📊</div>
+            <p class="card-description">Найм организаторов для проведения масштабных мероприятий</p>
+          </div>
+          
+          <!-- Контент 6 -->
+          <div class="card-content">
+            <div class="card-icon arena">👥</div>
+            <p class="card-description">Возможность стать домашней ареной клуба или команды</p>
+          </div>
+          
+        </div>
+        
+        <!-- стрелки + точки снизу -->
+        <div class="card-navigation">
+          <button class="card-nav-btn" onclick="prevCard(3)">‹</button>
+          <div class="card-indicators" id="indicators-3"></div>
+          <button class="card-nav-btn" onclick="nextCard(3)">›</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Подсказка внизу -->
+    <div class="scroll-hint">
+      Скролл чтобы увидеть больше
+      <svg viewBox="0 0 16 16" fill="currentColor">
+        <path d="M3 6 L8 11 L13 6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+  </main>
+
+  <script>
+  
+  const cardStates = [
+    { currentIndex: 0, totalItems: 6 }, // Пользователи
+    { currentIndex: 0, totalItems: 4 }, // Организации  
+    { currentIndex: 0, totalItems: 4 }, // Команды и клубы
+    { currentIndex: 0, totalItems: 6 }  // Арены
+  ];
+
+  function updateCard(cardIndex) {
+    const card = document.querySelectorAll('.capability-card')[cardIndex];
+    const contents = card.querySelectorAll('.card-content');
+    const currentIndex = cardStates[cardIndex].currentIndex;
+    
+   
+    contents.forEach((content, index) => {
+      content.classList.toggle('active', index === currentIndex);
+    });
+    
+    
+    updateIndicators(cardIndex);
+    
+   
+    updateButtons(cardIndex);
+  }
+
+  function updateIndicators(cardIndex) {
+    const indicatorsContainer = document.getElementById(`indicators-${cardIndex}`);
+    const state = cardStates[cardIndex];
+    
+    indicatorsContainer.innerHTML = '';
+    
+    for (let i = 0; i < state.totalItems; i++) {
+      const indicator = document.createElement('span');
+      indicator.className = `card-indicator ${i === state.currentIndex ? 'active' : ''}`;
+      indicator.onclick = () => {
+        cardStates[cardIndex].currentIndex = i;
+        updateCard(cardIndex);
+      };
+      indicatorsContainer.appendChild(indicator);
+    }
+  }
+
+  function updateButtons(cardIndex) {
+    const card = document.querySelectorAll('.capability-card')[cardIndex];
+    const prevBtn = card.querySelector('.card-nav-btn:first-child');
+    const nextBtn = card.querySelector('.card-nav-btn:last-child');
+    const state = cardStates[cardIndex];
+    
+    prevBtn.disabled = state.currentIndex === 0;
+    nextBtn.disabled = state.currentIndex === state.totalItems - 1;
+  }
+
+  function nextCard(cardIndex) {
+    const state = cardStates[cardIndex];
+    if (state.currentIndex < state.totalItems - 1) {
+      state.currentIndex++;
+      updateCard(cardIndex);
+    }
+  }
+
+  function prevCard(cardIndex) {
+    const state = cardStates[cardIndex];
+    if (state.currentIndex > 0) {
+      state.currentIndex--;
+      updateCard(cardIndex);
+    }
+  }
+  // Инициализация локальных индикаторов в карточках
+  window.addEventListener('load', () => {
+    cardStates.forEach((_, index) => {
+      updateIndicators(index); //точки снизу
+      updateCard(index);
+    });
+  });
+
+ 
+  </script>
+
+</body>
+</html>
